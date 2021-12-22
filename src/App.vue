@@ -1,28 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-container fluid style="padding:0">
+      <router-view class="main" />
+    </v-container>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
-</script>
+  },
+  data: () => ({
+  }),
+};
 
+//eslint-disable-next-line
+console.log('%c\n                                                                        ,,\n                                                                       /  ,\n                                                                      /   /\n                                                                     /   /\n                                                                    /   /\n     __________________________                                    /   /\n    ⎢                         ⎥                                   /   /\n    ⎢     울 냥이 화이팅♡    ⎥                                  /   /\n    ⎢____    _________________⎥                                 /   /\n          \\/    ,      ,,                                      /   /\n               /%c@%c\\____/%c@%c \\                                ____/   /\n              /           \\                         _____/        /__\n        /\" \\ / •    •      \\                     __/             /  %c@@%c\"\\\n        \\    %c@@%c  ㅅ  %c@@%c     /___             ___/                /    _/\n       /\" \\   \\                 \\__________/                    |__/ \"\\\n       \\   \\                                                   /      /\n        \\    \\  __                                                  _/\n         \\                                                       __/\n           \\_                                             ______/\n              \\ ___                                    __/\n                    \\__                             __/\n                        \\_____                _____/\n                              \\______________/\n\n',"font-weight: bold;","font-weight: bold; color: #ff7777","font-weight: bold;","font-weight: bold; color: #ff7777","font-weight: bold;","font-weight: bold; color: #ff7777","font-weight: bold;","font-weight: bold; color: #ff7777","font-weight: bold;","font-weight: bold; color: #ff7777","font-weight: bold;")
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.main {
+  margin:auto;
+  height: 100vh;
+  background-position: center;
+  background-repeat : no-repeat;
+  background-size : cover;
+  background-image: url('./assets/main.png');
 }
 </style>
