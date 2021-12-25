@@ -5,6 +5,8 @@ import Main from '../pages/Main'
 import Answer from '../pages/Answer'
 import QuizList from '../pages/QuizList'
 import Test from '../pages/Test'
+import Quiz2 from '../pages/Quiz2'
+import BoardDetail from '../pages/BoardDetail'
 Vue.use(VueRouter);
 
 const routes = [
@@ -27,6 +29,17 @@ const routes = [
         path: '/test',
         name: 'test',
         component: Test
+    },
+    {
+        path: '/hrefTargetChange',
+        name: 'hrefTargetChange',
+        component: Quiz2
+    },
+    {
+        path: '/boardDetail',
+        name: 'boardDetail',
+        component: BoardDetail,
+        props: (route) => ({ boardId: route.query.id })
     },
 ];
 

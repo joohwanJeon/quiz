@@ -21,7 +21,7 @@ console.log('%c\n                                                               
 <style>
 .main {
   margin:auto;
-  height: 100vh;
+  min-height: 100vh;
   background-position: center;
   background-repeat : no-repeat;
   background-size : cover;

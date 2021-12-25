@@ -8,6 +8,8 @@
         <v-card :color="color" dark 
           v-on="on"
           v-bind="attrs"
+          :class="{'none': isSolved}"
+          :disabled="isSolved"
         >
           <v-card-title rd-title></v-card-title>
           <v-card-actions>
@@ -18,7 +20,7 @@
           </v-card-actions>
         </v-card>
       </template>
-      <slot :dialogClose="dialogClose"></slot>
+      <slot name="content" :dialogClose="dialogClose"></slot>
     </v-dialog>
 </template>
 
@@ -26,7 +28,8 @@
 export default {
   props: [
     'isPersistent',
-    'maxWidth'
+    'maxWidth',
+    'isSolved'
   ],
   methods: {
     dialogClose() {
@@ -49,4 +52,7 @@ export default {
 </script>
 
 <style>
+.none {
+  background-color: red !important;
+}
 </style>

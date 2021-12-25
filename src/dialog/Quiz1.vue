@@ -1,6 +1,6 @@
 <template>
-  <QuizDialog v-on:success="$emit('success')" :isPersistent=true maxWidth="600px">
-    <template v-slot="{dialogClose}">
+  <QuizDialog v-on:success="$emit('success')" :isSolved="isSolved" :isPersistent=true maxWidth="600px">
+    <template v-slot:content="{dialogClose}">
       <v-card>
         <v-card-title style="text-align: center" class="text-h5">
           팝업을 닫으세요
@@ -21,13 +21,16 @@
 </template>
 
 <script>
-import QuizDialog from '../component/CustomDialog';
+import QuizDialog from '../component/QuizDialog';
 
 export default {
   name: 'quiz1',
   components: {
     QuizDialog
   },
+  props: [
+    'isSolved'
+  ],
   created() {
   },
   methods: {
