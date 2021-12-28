@@ -9,6 +9,7 @@
 
 <script>
 import * as boardService from '../service/boardService'
+// import * as userService from '../service/userService'
 export default {
   name: 'boardDetail',
   props: [
@@ -16,6 +17,9 @@ export default {
   ],
   async created() {
     this.board = await boardService.getBoard(this.boardId);
+    if(!this.board.checked) {
+      await boardService.updateBoard(this.boardId);
+    }
   },
   methods: {
   },

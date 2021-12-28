@@ -2,8 +2,8 @@
   <v-container class="center" fluid>
     <v-row class="row-center">
       <v-col cols="4">
-        <Quiz1 :isSolved="isSolved" v-on:success="successHandler1"/>
-        <Explain1 v-if="isSolved"/>
+        <Quiz1 :isSolved="isSolved(1)" v-on:success="successHandler1"/>
+        <Explain1 v-if="explain1"/>
       </v-col>
       <v-col cols="4">
         <Quiz2 />
@@ -43,21 +43,29 @@ export default {
     // Quiz4,
     // Quiz5,
   },
-  async created() {
-    const user = await userService.getUser();
-    console.log(user);
+  created() {
+    this.getUser();
   },
   data() {
     return {
-      isSolved: false,
+      user: {},
+      explain1: false
     }
   },
   methods: {
     goNext() {
       console.log('test');
     },
-    successHandler1() {
-      this.isSolved = true;
+    async getUser() {
+      this.user = await userService.getUser();
+    },
+    isSolved(n) {
+      return eval('this.user.quiz' + n) === 999;
+    },
+    async successHandler1() {
+      await userService.updateUser({quiz1: 999});
+      this.getUser();
+      this.explain1 = true;
     },
     successHandler2() {
       console.log('2번문제 해결');
