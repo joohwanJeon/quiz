@@ -5,7 +5,7 @@
         <!-- <router-link :to="{name: 'boardDetail', query: {id: board.id}}"> -->
           <v-card style="margin:auto" width="300px" @click="goDetail(board.id)">
             <v-img :src="board.image"></v-img>
-            {{board.title}}
+              <v-card-title>{{board.title}}</v-card-title>
           </v-card>
         <!-- </router-link> -->
       </v-col>

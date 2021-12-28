@@ -2,28 +2,26 @@
   <div class="image">
     <v-container>
       <v-img :src="board.image" max-height="450px" contain></v-img>
+      {{board.title}}
     </v-container>
   </div>
 </template>
 
 <script>
+import * as boardService from '../service/boardService'
 export default {
   name: 'boardDetail',
   props: [
     'boardId'
   ],
-  created() {
-    //todo
-    //boardId로 게시글 상세 조회
-
-    //todo
-    //boardId로 이 게시글이 정답인지 확인
+  async created() {
+    this.board = await boardService.getBoard(this.boardId);
   },
   methods: {
   },
   data() {
     return {
-      board: {id:1,title:"제목1",image:"https://ez.lotteacademy.co.kr/courseImage//migration/368/L017677.png"}
+      board: {},
     }
   },
 }

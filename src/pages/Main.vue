@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import * as userService from '../service/userService'
 export default {
   name: 'Main',
   data() {
@@ -52,12 +53,9 @@ export default {
         this.disabled = false;
       }
     },
-    goQuiz() {
-      const userInfo = {
-        name: 'khj',
-        accountPermssion: '01'
-      }
-      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+    async goQuiz() {
+      const userInfo = await userService.setUser(this.inputText);
+      localStorage.setItem('userInfo', JSON.stringify({id: userInfo.id, permission: userInfo.permission}));
       this.$router.push('quizList');
     },
   }

@@ -38,7 +38,7 @@ export default {
       this.userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
       if(this.userInfo) {
-        return this.userInfo.accountPermssion === '00';
+        return this.userInfo.permission === '00';
       }
       return false;
     }

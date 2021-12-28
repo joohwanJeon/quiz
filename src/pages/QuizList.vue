@@ -31,6 +31,7 @@ import Quiz2 from '../dialog/Quiz2'
 // import Quiz4 from '../dialog/Quiz4'
 // import Quiz5 from '../dialog/Quiz5'
 import Explain1 from '../dialog/Explain1'
+import * as userService from '../service/userService'
 
 export default {
   name: 'QuizList',
@@ -41,6 +42,10 @@ export default {
     // Quiz3,
     // Quiz4,
     // Quiz5,
+  },
+  async created() {
+    const user = await userService.getUser();
+    console.log(user);
   },
   data() {
     return {
