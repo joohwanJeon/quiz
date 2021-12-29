@@ -21,7 +21,6 @@ export default {
   components: {
   },
   created() {
-    console.log(this.isSolved);
   },
   data() {
     return {

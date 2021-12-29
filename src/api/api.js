@@ -7,5 +7,7 @@ export default Object.freeze({
 
     GET_BOARD_LIST: 'getBoards',
     GET_BOARD: 'getBoard',
-    UPDATE_BOARD: 'updateBoard'
+    UPDATE_BOARD: 'updateBoard',
+
+    GET_DATA: 'getData',
 })

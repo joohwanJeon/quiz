@@ -34,6 +34,7 @@
 
 <script>
 import ExplainDialog from './ExplainDialog'
+import * as userService from '../service/userService'
 export default {
   components: {
     ExplainDialog
@@ -43,8 +44,17 @@ export default {
     'dialog'
   ],
   methods: {
-    goDetail(id, target = '_self') {
+    async goDetail(id, target = '_self') {
+      const temp = target;
       window.open(`/boardDetail?id=${id}`, target);
+      if(this.isAnswer(temp, target)) {
+        await userService.updateUser({quiz2: 999})
+        await this.$router.push('quizList');
+        this.$EventBus.$emit('successHandler2');
+      }
+    },
+    isAnswer(a, b) {
+      return a !== b;
     }
   },
 }

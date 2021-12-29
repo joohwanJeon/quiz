@@ -7,17 +7,12 @@
       </v-col>
       <v-col cols="4">
         <Quiz2 :isSolved="isSolved(2)"/>
-        <!-- <Explain1 v-if="isSolved"/> -->
-      </v-col>
-      <!-- <v-col cols="4">
-        <Quiz3 v-on:success="test3"/>
+        <Explain2 v-if="explain2"/>
       </v-col>
       <v-col cols="4">
-        <Quiz4 v-on:success="test4"/>
+        <Quiz3 :isSolved="isSolved(3)"/>
+        <Explain3 v-if="explain3"/>
       </v-col>
-      <v-col cols="4">
-        <Quiz5 v-on:success="test5"/>
-      </v-col> -->
     </v-row>
   </v-container>
 
@@ -27,10 +22,10 @@
 <script>
 import Quiz1 from '../dialog/Quiz1'
 import Quiz2 from '../dialog/Quiz2'
-// import Quiz3 from '../dialog/Quiz3'
-// import Quiz4 from '../dialog/Quiz4'
-// import Quiz5 from '../dialog/Quiz5'
+import Quiz3 from '../dialog/Quiz3'
 import Explain1 from '../dialog/Explain1'
+import Explain2 from '../dialog/Explain2'
+import Explain3 from '../dialog/Explain3'
 import * as userService from '../service/userService'
 
 export default {
@@ -39,17 +34,23 @@ export default {
     Quiz1,
     Explain1,
     Quiz2,
-    // Quiz3,
-    // Quiz4,
-    // Quiz5,
+    Explain2,
+    Quiz3,
+    Explain3
   },
   created() {
     this.getUser();
+    this.$EventBus.$on('successHandler2', () => {
+      this.explain2 = true;
+      console.log('successHandler2', this.explain2);
+    })
   },
   data() {
     return {
       user: {},
-      explain1: false
+      explain1: false,
+      explain2: false,
+      explain3: false,
     }
   },
   methods: {

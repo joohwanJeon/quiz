@@ -1,7 +1,7 @@
 <template>
   <div>
     <BoardList :boards="boards" :dialog="dialog"/>
-    <v-btn color="primary" @click="viewMore">더보기</v-btn>
+    <v-btn large block color="primary" @click="viewMore">view more</v-btn>
   </div>
 </template>
 
