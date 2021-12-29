@@ -6,7 +6,7 @@
         <Explain1 v-if="explain1"/>
       </v-col>
       <v-col cols="4">
-        <Quiz2 />
+        <Quiz2 :isSolved="isSolved(2)"/>
         <!-- <Explain1 v-if="isSolved"/> -->
       </v-col>
       <!-- <v-col cols="4">

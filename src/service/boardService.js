@@ -4,7 +4,11 @@ import API from '../api/api'
 let boards = [];
 let cnt = 0;
 
-export async function getBoardList(init) {
+export async function getBoardList(init, all) {
+    if(all) {
+        return boards;
+    }
+    
     if(init) {
         cnt = 0;
         boards =  await apiService.toGet(API.GET_BOARD_LIST);

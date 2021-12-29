@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BoardList :boards="boards" />
+    <BoardList :boards="boards" :dialog="dialog"/>
     <v-btn color="primary" @click="viewMore">더보기</v-btn>
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
   },
   async created() {
     this.boards = await boardService.getBoardList(true);
+    this.allBoards = await boardService.getBoardList(null, true);
   },
   methods: {
     async viewMore() {
@@ -24,8 +25,14 @@ export default {
   data() {
     return {
       boards: [],
+      allBoards: [],
     }
   },
+  computed: {
+    dialog() {
+      return this.allBoards.filter(v => !v.checked).length === 1;
+    }
+  }
 }
 </script>
 
