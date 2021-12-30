@@ -10,7 +10,7 @@
             label="Search"
             single-line
             hide-details
-            style="max-width: 200px; visibility: hidden"
+            style="max-width: 200px; "
           ></v-text-field>
         </v-card-title>
         <v-data-table
@@ -21,6 +21,13 @@
           hide-default-footer
           outlined
         ></v-data-table>
+      </v-card>
+
+      <v-card style="margin:auto; margin-top:30px; max-width:500px;">
+        <v-card-title>아이디가 programerhz인 사용자의 비밀번호는?</v-card-title>
+        <v-text-field
+          v-model="answer"
+          ></v-text-field>
       </v-card>
     </template>
   </QuizDialog>
@@ -39,8 +46,7 @@ export default {
     'isSolved'
   ],
   async created() {
-    this.data = await quizService.searchData();
-    // this.data = await quizService.getMyData();
+    this.data = await quizService.getMyData();
     if(this.data.length > 0) {
       this.headers = Object.keys(this.data[0]).map(v => {
         return {
@@ -54,13 +60,23 @@ export default {
   methods: {
 
   },
+  watch: {
+    async search(newVal) {
+      this.data = await quizService.searchData(newVal);
+    },
+    answer(newVal) {
+      console.log(newVal, process.env.VUE_APP_QUIZ3_ANSWER);
+      if(newVal === process.env.VUE_APP_QUIZ3_ANSWER) {
+        console.log('quiz3_success');
+      }
+    }
+  },
   data() {
     return {
       data: [],
       search: '',
       headers: [],
-      items: [],
-
+      answer: '',
     }
   }
 }

@@ -13,16 +13,19 @@ function toRequest(method, url, params, errorAlert){
         config.data = params
     }
     return instance(config)
-            .then(res => successHandler(res, errorAlert))
-            .catch(res => errorHandler(res, errorAlert));
+            .then(res => successHandler(res.data, errorAlert))
+            .catch(res => errorHandler(res.response, errorAlert));
 }
 
 function successHandler(response) {
-    return Promise.resolve(response.data.data);
+    return Promise.resolve(response.data);
 }
 
 function errorHandler(response) {
-    return Promise.reject(response.data);
+    if(response.status === 400) {
+        return Promise.resolve([]);
+    }
+    return Promise.reject(response);
 }
 
 
