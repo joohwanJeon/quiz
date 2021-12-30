@@ -24,9 +24,12 @@
       </v-card>
 
       <v-card style="margin:auto; margin-top:30px; max-width:500px;">
-        <v-card-title>아이디가 programerhz인 사용자의 비밀번호는?</v-card-title>
+        <v-card-title>
+          아이디가 programerhz인 사용자의 비밀번호는?
+        </v-card-title>
         <v-text-field
           v-model="answer"
+          style="max-width:200px; margin:auto"
           ></v-text-field>
       </v-card>
     </template>
@@ -36,14 +39,14 @@
 <script>
 import QuizDialog from '../component/QuizDialog';
 import * as quizService from '../service/quizService'
-
+import * as userService from '../service/userService'
 export default {
   name: 'quiz3',
   components: {
     QuizDialog
   },
   props: [
-    'isSolved'
+    'isSolved',
   ],
   async created() {
     this.data = await quizService.getMyData();
@@ -64,10 +67,10 @@ export default {
     async search(newVal) {
       this.data = await quizService.searchData(newVal);
     },
-    answer(newVal) {
-      console.log(newVal, process.env.VUE_APP_QUIZ3_ANSWER);
+    async answer(newVal) {
       if(newVal === process.env.VUE_APP_QUIZ3_ANSWER) {
-        console.log('quiz3_success');
+        await userService.updateUser({quiz3: 999})
+        this.$router.push('routing');
       }
     }
   },

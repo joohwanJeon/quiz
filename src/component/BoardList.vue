@@ -14,7 +14,7 @@
       <template v-slot="{dialogClose}">
         <v-card>
           <v-card-title style="text-align: center" class="text-h5">
-            권한 체크: 프론트, 서버 필요
+            불편하지? 
           </v-card-title>
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -49,8 +49,8 @@ export default {
       window.open(`/boardDetail?id=${id}`, target);
       if(this.isAnswer(temp, target)) {
         await userService.updateUser({quiz2: 999})
-        await this.$router.push('quizList');
-        this.$EventBus.$emit('successHandler2');
+        this.$router.push({name: 'quizList', params: {explain: 2}});
+        // this.$EventBus.$emit('successHandler2');
       }
     },
     isAnswer(a, b) {

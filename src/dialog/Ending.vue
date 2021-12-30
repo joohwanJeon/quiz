@@ -3,7 +3,7 @@
     <template v-slot="{dialogClose}">
       <v-card>
         <v-card-title style="text-align: center" class="text-h5">
-          1번째 해설지
+          엔딩
         </v-card-title>
         <v-card-actions>
           <v-spacer></v-spacer>

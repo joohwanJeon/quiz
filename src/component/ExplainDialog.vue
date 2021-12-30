@@ -11,6 +11,7 @@ export default {
   methods: {
     dialogClose() {
       this.dialog = false;
+      this.$EventBus.$emit('explainDialogClosed');
     },
   },
   data() {

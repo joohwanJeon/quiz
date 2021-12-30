@@ -7,6 +7,7 @@ import QuizList from '../pages/QuizList'
 import Test from '../pages/Test'
 import Quiz2 from '../pages/Quiz2'
 import BoardDetail from '../pages/BoardDetail'
+import Routing from '../pages/Routing'
 Vue.use(VueRouter);
 
 const routes = [
@@ -34,6 +35,11 @@ const routes = [
         path: '/hrefTargetChange',
         name: 'hrefTargetChange',
         component: Quiz2
+    },
+    {
+        path: '/routing',
+        name: 'routing',
+        component: Routing
     },
     {
         path: '/boardDetail',

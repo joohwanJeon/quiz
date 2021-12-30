@@ -12,3 +12,9 @@ export async function searchData(keyword='') {
 export async function getMyData() {
     return await apiService.toGet(API.GET_DATA, {name: '"김땡땡"'});
 }
+
+export function checkClear(a,b,c) {
+    const quizes = [a,b,c];
+    return quizes.every(v => v === 999);
+
+}

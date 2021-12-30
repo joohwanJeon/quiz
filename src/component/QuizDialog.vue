@@ -45,7 +45,6 @@ export default {
     }
   },
   created() {
-    
   },
 }
 
@@ -53,6 +52,6 @@ export default {
 
 <style>
 .none {
-  background-color: red !important;
+  background-color: #F44336 !important;
 }
 </style>
