@@ -1,22 +1,22 @@
 <template>
   <div>
     <!-- <img width="100%" src="../assets/main.png"> -->
-    <div style="position:absolute; top:45%; width:100%; text-align: center; color:white">
-      <h3>FrontEnd Developer 김희진 초대장</h3>
-      <div v-for="sentence in sentences" :key="sentence">
+    <div style="position:absolute; top:30%; width:100%; text-align: center; color:white">
+      <h2 style="font-family: 'Dongle', sans-serif; font-size:3em">FrontEnd Developer 김희진</h2>
+      <div style="font-family: 'Dongle', sans-serif; font-size:3em" v-for="sentence in sentences" :key="sentence">
         <span v-for="(word, index) in sentence" :key="index">{{word === ' '? '&nbsp;' : test(word)}}</span>
 
       </div>
       <div>
-        <v-btn small @click="buttonClicked(text)" v-for="text in quizText1" :key="text">{{text}}</v-btn>
+        <v-btn style="background-color: lightslategray" small @click="buttonClicked(text)" v-for="text in quizText1" :key="text">{{text}}</v-btn>
       </div>
       <div>
-        <v-btn small @click="buttonClicked(text)" v-for="text in quizText2" :key="text">{{text}}</v-btn>
+        <v-btn style="background-color: lightslategray" small @click="buttonClicked(text)" v-for="text in quizText2" :key="text">{{text}}</v-btn>
       </div>
       <div>
-        <v-btn small @click="buttonClicked(text)" v-for="text in quizText3" :key="text">{{text}}</v-btn>
+        <v-btn style="background-color: lightslategray" small @click="buttonClicked(text)" v-for="text in quizText3" :key="text">{{text}}</v-btn>
       </div>
-      <v-btn @click="goQuiz" color="primary" :disabled="disabled">시작하기</v-btn>
+      <v-btn @click="goQuiz" style="background-color: darkcyan" :disabled="disabled">시작하기</v-btn>
 
       <p hidden>
         최종 정답 주소: '/answer'
@@ -74,7 +74,9 @@ export default {
 }
 </script>
 
+
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 @import url(https://fonts.googleapis.com/css?family=Finger+Paint);
 
 body {

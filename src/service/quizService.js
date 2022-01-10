@@ -10,7 +10,7 @@ export async function searchData(keyword='') {
 }
 
 export async function getMyData() {
-    return await apiService.toGet(API.GET_DATA, {name: '"김땡땡"'});
+    return await apiService.toGet(API.GET_DATA, {name: '"김희진"'});
 }
 
 export function checkClear(a,b,c) {

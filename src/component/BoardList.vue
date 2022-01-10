@@ -12,9 +12,11 @@
 
     <ExplainDialog v-if="dialog">
       <template v-slot="{dialogClose}">
-        <v-card>
-          <v-card-title style="text-align: center" class="text-h5">
-            불편하지? 
+        <v-card width="63%" style="margin:auto">
+          <v-card-title>
+            어때, 불편하지?<br>
+            의외로 이렇게 사용자의 두통을 유발하는 사이트들이 아직도 많다.<br>
+            하지만 사용자가 FrontEnd Developer라면, 이야기가 달라지겠지?<br>
           </v-card-title>
           <v-card-actions>
             <v-spacer></v-spacer>

@@ -3,7 +3,7 @@
     <v-container fluid style="padding:0">
       <router-view class="main" />
     </v-container>
-    <audio autoplay controls> <source src="./assets/1.mp4" type="audio/mp4"> </audio>
+    <!-- <audio autoplay controls> <source src="./assets/1.mp4" type="audio/mp4"> </audio> -->
   </v-app>
 </template>
 

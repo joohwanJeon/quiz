@@ -1,9 +1,9 @@
 <template>
-  <QuizDialog v-on:success="$emit('success')" :isSolved="isSolved" :isPersistent=true maxWidth="600px">
+  <QuizDialog v-on:success="$emit('success')" :index="index" :isSolved="isSolved" :isPersistent=true maxWidth="600px">
     <template v-slot:content="{dialogClose}">
       <v-card>
         <v-card-title style="text-align: center" class="text-h5">
-          팝업을 닫으세요
+          팝업을 닫으시오
         </v-card-title>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -29,7 +29,8 @@ export default {
     QuizDialog
   },
   props: [
-    'isSolved'
+    'isSolved',
+    'index'
   ],
   created() {
   },

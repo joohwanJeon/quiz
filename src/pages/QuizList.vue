@@ -2,13 +2,13 @@
   <v-container class="center" fluid>
     <v-row class="row-center">
       <v-col cols="4">
-        <Quiz1 :isSolved="isSolved(1)" v-on:success="successHandler1"/>
+        <Quiz1 :index=1 :isSolved="isSolved(1)" v-on:success="successHandler1"/>
       </v-col>
       <v-col cols="4">
         <Quiz2 :isSolved="isSolved(2)"/>
       </v-col>
       <v-col cols="4">
-        <Quiz3 :isSolved="isSolved(3)"/>
+        <Quiz3 :index=3 :isSolved="isSolved(3)"/>
       </v-col>
     </v-row>
 

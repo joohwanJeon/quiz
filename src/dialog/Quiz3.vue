@@ -1,5 +1,5 @@
 <template>
-  <QuizDialog v-on:success="$emit('success')" :isSolved="isSolved" maxWidth="800px">
+  <QuizDialog v-on:success="$emit('success')" :index="index" :isSolved="isSolved" maxWidth="800px">
     <template v-slot:content>
       <v-card style="background-color: darkslategray">
         <v-card-title style="text-align: center" class="text-h5">
@@ -7,7 +7,7 @@
           <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
-            label="Search"
+            label="search"
             single-line
             hide-details
             style="max-width: 200px; "
@@ -23,7 +23,7 @@
         ></v-data-table>
       </v-card>
 
-      <v-card style="margin:auto; margin-top:30px; max-width:500px;">
+      <v-card style="margin:auto; margin-top:30px; max-width:500px; background-color:darkgray">
         <v-card-title>
           아이디가 programerhz인 사용자의 비밀번호는?
         </v-card-title>
@@ -47,6 +47,7 @@ export default {
   },
   props: [
     'isSolved',
+    'index'
   ],
   async created() {
     this.data = await quizService.getMyData();

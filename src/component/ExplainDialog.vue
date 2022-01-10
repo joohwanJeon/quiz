@@ -1,6 +1,7 @@
 <template>
     <v-dialog
       v-model="dialog"
+      :persistent="isPersistent"
     >
       <slot :dialogClose="dialogClose"></slot>
     </v-dialog>
@@ -8,6 +9,7 @@
 
 <script>
 export default {
+  props: ['isPersistent'],
   methods: {
     dialogClose() {
       this.dialog = false;

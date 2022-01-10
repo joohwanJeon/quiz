@@ -1,8 +1,7 @@
 <template>
   <div class="image">
     <v-container>
-      <v-img :src="board.image" max-height="450px" contain></v-img>
-      {{board.title}}
+      <v-img :src="board.image" max-height="97vh" contain></v-img>
     </v-container>
   </div>
 </template>
@@ -37,6 +36,6 @@ export default {
   min-height: 100vh;
   background-repeat : round;
   background-image: url('https://i.pinimg.com/236x/e2/72/df/e272dfe05cc64b0e88a8fd5a602dedbf.jpg');
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 </style>
